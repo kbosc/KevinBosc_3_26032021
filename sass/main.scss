@@ -1,3 +1,15 @@
+@import "utils/_variables";
+@import "utils/_mixins";
+@import "utils/_functions";
+@import "utils/placeholders";
+@import "base/_typography";
+
+
 body {
     background-color: aquamarine;
+}
+
+img {
+    width: 1em;
+    height: 1em;
 }
