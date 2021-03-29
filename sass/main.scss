@@ -7,6 +7,11 @@
 @import "components/_buttons";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 img {
   width: 1em;
   height: 1em;
@@ -35,9 +40,13 @@ header {
   }
 }
 
+main {
+  @include responsive-desktop {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 .main__container-top {
-  // display: flex;
-  // flex-direction: column;
   display: grid;
   margin-bottom: 2em;
   &__search {
@@ -47,11 +56,17 @@ header {
     background-color: darken($grey, 5%);
     border: none;
     border-top: 4px darken($grey, 10%) solid;
+    @include responsive-desktop {
+      height: 8rem;
+    }
     &::placeholder {
       background-image: url(../images/svg/map-marker.svg);
       background-repeat: no-repeat;
       background-position: 35%;
       color: black;
+      @include responsive-mobile {
+        background-position: 30%;
+      }
     }
   }
 
@@ -60,6 +75,10 @@ header {
     text-align: center;
     padding: 1em 4em;
   }
+  @include responsive-desktop {
+    flex-basis: 40%;
+    height: 0;
+  }
 }
 
 .main__container-middle {
@@ -67,23 +86,27 @@ header {
   flex-direction: column;
   margin: 0 1em;
   position: relative;
+  @include responsive-desktop {
+    flex-basis: 50%;
+    @extend %flex-center;
+  }
   h2 {
     align-self: stretch;
+    @include responsive-desktop {
+      align-self: center;
+    }
   }
   p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %flex-center;
     background-color: $grey;
     font-weight: 400;
-    height: 4rem;
     width: 21em;
     border-radius: 20px;
     height: 4.5rem;
     @extend %shadow;
-    // @include responsive {
-    //   width: 19em;
-    // }
+    @include responsive-mobile {
+      width: 18em;
+    }
     &:hover {
       @extend %shadow-hover;
       background: linear-gradient(
@@ -97,31 +120,36 @@ header {
     span {
       position: absolute;
       border-radius: 50%;
-      width: 18px;
-      height: 18px;
+      width: 25px;
+      height: 25px;
       padding: 2px;
       background: #fff;
       border: 2px solid transparent;
       color: #666;
       text-align: center;
-      font-size: 17px;
-      margin-right: 20em;
+      // font-size: 17px;
+      margin-right: 21em;
       background-color: $primary;
       color: white;
+      @include responsive-mobile {
+        margin-right: 18em;
+      }
     }
     svg {
       position: absolute;
       margin-left: -16em;
       width: 1rem;
       color: darken($color: $grey, $amount: 40);
-
+      @include responsive-mobile {
+        margin-left: -14em;
+      }
     }
   }
 }
 
 .main__container-bottom {
   background-color: $grey;
-  padding-top: 2rem;
+  padding: 2rem 0;
   h2 {
     margin: 1rem 1rem;
   }
@@ -132,6 +160,9 @@ header {
   border-radius: 15px;
   background-color: white;
   @extend %shadow;
+  @include responsive-desktop {
+    width: 400px;
+  }
 
   &:hover {
     @extend %shadow-hover;
@@ -153,6 +184,7 @@ header {
     border-radius: 2px;
   }
 }
+
 .card__bottom {
   display: flex;
   &__about {
@@ -160,30 +192,88 @@ header {
     margin-left: 1rem;
   }
   &__like {
+    @extend %flex-center;
     flex-basis: 20%;
-    fill: white;
+    fill: transparent;
     stroke: black;
-    stroke-width: 10;
-    outline: none;
-    background: none;
+    stroke-width: 30;
     position: relative;
     svg {
-      cursor: pointer;
-      transition: transform 0.4s ease;
       overflow: visible;
       width: 2rem;
-      position: absolute;
-      top: 2em;
-      right: 2em;
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
+      path {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 1550;
+        // transform-origin: center;
+        cursor: pointer;
+      }
+    }
+    .heart-main:hover path {
+      stroke: $primary;
+      animation: stroke-animation 2s ease-in-out forwards;
+      @keyframes stroke-animation {
+        0% {
+          stroke-dashoffset: 0;
+        }
+        30% {
+          stroke-dashoffset: 1550;
+        }
+        60% {
+          stroke-dashoffset: 3100;
+          fill: transparent;
+          transform: scale(1);
+        }
+        80% {
+          fill: $primary;
+          transform: scale(1.1);
+        }
+        90% {
+          transform: scale(1);
+        }
+        100% {
+          stroke-dashoffset: 3100;
+          fill: $primary;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 1em;
+  background-color: lighten(black, 20);
+  color: white;
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    a {
+      height: 2rem;
+      text-decoration: none;
+      color: white;
+      svg {
+        width: 1em;
+        height: 1em;
+      }
+      &:visited {
+        color: white;
+        text-decoration: none;
+      }
       &:hover {
-        transform: scale(1.2);
+        opacity: 0.7;
+        text-decoration: underline;
       }
       &:active {
-        transform: scale(1.5);
+        opacity: 1;
+        text-decoration: none;
       }
+      @include responsive-desktop {
+        margin-right: 2em;
+      }
+    }
+    @include responsive-desktop {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 }

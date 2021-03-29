@@ -9,8 +9,25 @@
   transform: translate($x, $y);
 }
 
-// @mixin responsive {
-//     @media screen and (max-width: map-get($breakpoints, mobile)){
-//       @content;
-//     }
+//  @mixin responsive {
+//      @media screen and (max-width: map-get($breakpoints, mobile)){
+//        @content;
+//      }
+//    }
+@mixin responsive-mobile {
+  @media screen and (max-width: 320px){
+    @content;
+  }
+}
+@mixin responsive-desktop {
+  @media screen and (min-width: 450px){
+    @content;
+  }
+}
+
+// @mixin gradient($background){
+//       $background: linear-gradient(
+//         lighten($primary, 25),
+//         lighten($secondary, 15)
+//       )
 //   }
