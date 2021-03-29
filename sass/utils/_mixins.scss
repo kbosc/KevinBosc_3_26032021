@@ -1,8 +1,16 @@
-@mixin absolute-el ($top, $right, $bottom, $x, $y) {
-    position: absolute;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-    transform: translate($x, $y);
+// @import "./_map";
+
+@mixin absolute-el($top, $right, $bottom, $x, $y) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  transform: translate($x, $y);
 }
+
+// @mixin responsive {
+//     @media screen and (max-width: map-get($breakpoints, mobile)){
+//       @content;
+//     }
+//   }

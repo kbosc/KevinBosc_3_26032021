@@ -1,0 +1,16 @@
+.btn {
+    display:inline-block;
+    text-decoration: none;
+    padding: .8rem;
+    margin-bottom: 2em;
+    border-radius: 25px;
+    color: white;
+    background: linear-gradient($secondary, $primary);
+    transition: color 0.5s ease-out;
+    @extend %shadow;
+    &:hover {
+        @extend %shadow-hover;
+        background: linear-gradient(lighten($primary, 25), lighten($secondary, 15));
+        color:black;
+    }
+}
