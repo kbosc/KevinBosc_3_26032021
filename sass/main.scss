@@ -55,25 +55,27 @@ main {
 }
 .main__container-top {
   margin-bottom: 2em;
+  @extend %flex-center;
+  flex-direction: column;
   @include responsive-desktop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-basis: 100%;
+  }
+  @include responsive-desktop-large {
     flex-basis: 45%;
   }
   &__search {
     width: 100%;
     text-align: center;
     height: 3rem;
-    background-color: darken($grey, 5%);
     border: none;
+    background-color: darken($grey, 5%);
     border-top: 4px darken($grey, 10%) solid;
     @include responsive-desktop {
       height: 4rem;
+      margin-top: 1rem;
+      width: 20rem;
       border: none;
-      width: 50%;
-      border-radius: 32px;
+      border-radius: 20px;
     }
     &::placeholder {
       background-image: url(../images/svg/map-marker.svg);
@@ -97,7 +99,6 @@ main {
       padding: 1em 1em;
     }
   }
-  
 }
 
 .main__container-middle {
@@ -106,8 +107,10 @@ main {
   margin: 0 1em;
   position: relative;
   @include responsive-desktop {
+    flex-basis: 100%;
+  }
+  @include responsive-desktop-large {
     flex-basis: 50%;
-    @extend %flex-center;
   }
   h2 {
     align-self: stretch;
@@ -125,6 +128,9 @@ main {
     @extend %shadow;
     @include responsive-mobile {
       width: 18em;
+    }
+    @include responsive-mobile-small {
+      width: 16em;
     }
     &:hover {
       @extend %shadow-hover;
@@ -154,6 +160,9 @@ main {
       @include responsive-mobile {
         margin-right: 18em;
       }
+      @include responsive-mobile-small {
+        margin-left: 2em;
+      }
     }
     svg {
       position: absolute;
@@ -162,6 +171,9 @@ main {
       color: darken($color: $grey, $amount: 40);
       @include responsive-mobile {
         margin-left: -14em;
+      }
+      @include responsive-mobile-small {
+        margin-right: -1.5em;
       }
     }
   }

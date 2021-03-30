@@ -19,16 +19,21 @@
     @content;
   }
 }
+@mixin responsive-mobile-small {
+  @media screen and (max-width: 280px){
+    @content;
+  }
+}
 @mixin responsive-desktop {
   @media screen and (min-width: 450px){
     @content;
   }
 }
-// @mixin responsive-desktop-large {
-//   @media screen and (min-width: 450px){
-//     @content;
-//   }
-// }
+ @mixin responsive-desktop-large {
+   @media screen and (min-width: 881px){
+     @content;
+   }
+ }
 
 // @mixin gradient($background){
 //       $background: linear-gradient(
