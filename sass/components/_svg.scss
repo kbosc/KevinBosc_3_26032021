@@ -1,0 +1,44 @@
+// Heart animation
+.heart-main {
+    fill: transparent;
+      stroke: black;
+      stroke-width: 30;
+        overflow: visible;
+        width: 2rem;
+        path {
+          stroke-dashoffset: 0;
+          stroke-dasharray: 1550;
+          // transform-origin: center;
+          cursor: pointer;
+        }
+      }
+
+
+.heart-main:hover path {
+  stroke: $primary;
+  animation: stroke-animation 2s ease-in-out forwards;
+  @keyframes stroke-animation {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    30% {
+      stroke-dashoffset: 1550;
+    }
+    60% {
+      stroke-dashoffset: 3100;
+      fill: transparent;
+      transform: scale(1);
+    }
+    80% {
+      fill: $primary;
+      transform: scale(1.1);
+    }
+    90% {
+      transform: scale(1);
+    }
+    100% {
+      stroke-dashoffset: 3100;
+      fill: $primary;
+    }
+  }
+}
