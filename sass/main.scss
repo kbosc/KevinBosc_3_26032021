@@ -260,7 +260,7 @@ main {
           transform: scale(1);
         }
         80% {
-          fill: linear-gradient($secondary, $primary);
+          fill: $primary;
           transform: scale(1.1);
         }
         90% {
@@ -268,7 +268,7 @@ main {
         }
         100% {
           stroke-dashoffset: 3100;
-          fill: linear-gradient($secondary, $primary);
+          fill: $primary;
         }
       }
     }
