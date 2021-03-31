@@ -8,7 +8,6 @@
         path {
           stroke-dashoffset: 0;
           stroke-dasharray: 1550;
-          // transform-origin: center;
           cursor: pointer;
         }
       }
@@ -44,4 +43,17 @@
 }
 
 
-// CHECK ANIMATION
+// Apparition subcontainer
+@keyframes itemAppear {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+  // boing animation
+  // 0% {
+  //   transform: scale(0)
+  // }
+  // 100% {
+  //   transform: scale(1);
+  // }
+}

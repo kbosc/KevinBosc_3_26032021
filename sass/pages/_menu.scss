@@ -4,8 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
-}
+
 
 img {
   height: 15rem;
@@ -20,6 +19,10 @@ main {
   background-color: $grey;
   position: relative;
   padding: 2rem 0;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   &__title {
     display: flex;
     border-radius: 35px 35px 0 0;
@@ -31,10 +34,14 @@ main {
     width: 100%;
   }
   &__submenu {
-    margin: 0 1em;
-    & > h3 {
-      padding-top: 2rem;
-    }
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+  a {
+    @extend %flex-center;
+    width: 50%;
+    margin-bottom: 3rem;
   }
 }
 
@@ -42,6 +49,14 @@ main {
   @extend %flex-center;
   flex-direction: column;
   &__card {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+  animation: itemAppear .6s ease-out forwards;
+  // animation boing
+  // animation-timing-function: cubic-bezier(.5,1.58,.34,.82);
+  // animation-fill-mode: both;
+  // transform: scale(0);
     overflow: hidden;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -93,5 +108,10 @@ main {
 
       }
     }
+  }
+}
+@for $i from 0 to 9 {
+  .delay-#{$i} {
+    animation-delay:  #{$i/10}s;
   }
 }
