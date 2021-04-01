@@ -4,15 +4,18 @@
   box-sizing: border-box;
 }
 
-
-
 img {
   height: 15rem;
   width: 100%;
   object-fit: cover;
 }
 
-main {
+.container-desktop {
+  width: 100%;
+  @include responsive-desktop {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .main__container {
@@ -20,9 +23,12 @@ main {
   position: relative;
   padding: 2rem 0;
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include responsive-desktop {
+    padding: 0;
+  }
   &__title {
     display: flex;
     border-radius: 35px 35px 0 0;
@@ -32,16 +38,40 @@ main {
     top: -4rem;
     background-color: $grey;
     width: 100%;
+    @include responsive-desktop {
+      position: static;
+    }
   }
   &__submenu {
     width: 100%;
     padding: 0 1rem;
     margin-bottom: 2rem;
+    > h3 {
+      position: relative;
+      display: inline-block;
+      &:before {
+        position: absolute;
+        height: 5px;
+        width: 50px;
+        // width: 50%;
+        left: 1px;
+        bottom: -7px;
+        background: $tertiary;
+        display: block;
+        content: "";
+      }
+    }
+    @include responsive-desktop {
+      width: 25rem;
+    }
   }
   a {
     @extend %flex-center;
     width: 50%;
     margin-bottom: 3rem;
+    @include responsive-desktop {
+      width: 20rem;
+    }
   }
 }
 
@@ -52,11 +82,11 @@ main {
     cursor: pointer;
     opacity: 0;
     transform: translateY(30px);
-  animation: itemAppear .6s ease-out forwards;
-  // animation boing
-  // animation-timing-function: cubic-bezier(.5,1.58,.34,.82);
-  // animation-fill-mode: both;
-  // transform: scale(0);
+    animation: itemAppear 0.6s ease-out forwards;
+    // animation boing
+    // animation-timing-function: cubic-bezier(.5,1.58,.34,.82);
+    // animation-fill-mode: both;
+    // transform: scale(0);
     overflow: hidden;
     justify-content: space-between;
     margin-bottom: 1rem;
@@ -68,50 +98,57 @@ main {
     &:hover {
       @extend %shadow-hover;
     }
-    &__food {
-      white-space: nowrap;
-      overflow: hidden;
-      // text-overflow: ellipsis;
-      margin-left: 1em;
-      h3, p{
-        //  white-space: nowrap;
-         overflow: hidden;
-         text-overflow: ellipsis;
-      }
-      h3 {
-        font-weight: bold;
-      }
-    }
-    &__price {
+    &__description {
       display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      margin: 1rem 1rem;
+      justify-content: space-between;
+      width: 100%;
+      @extend %elipsis;
+      &__food {
+        @extend %elipsis;
+        margin-left: 1em;
+        h3,
+        p {
+          @extend %elipsis;
+        }
+        h3 {
+          font-weight: bold;
+        }
+      }
+      &__price {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin: 1rem 1rem;
+      }
     }
     &__hidde {
       background-color: $tertiary;
       @extend %flex-center;
       width: 0;
       // transform: scale(0);
-       transition: width 330ms ease-in-out;
+      transition: width 330ms ease-in-out;
       svg {
-         transform: rotate(180deg);
-         transition-duration: 0.5s;
-         width: 1.5rem;
+        transform: rotate(180deg);
+        transition-duration: 0.5s;
+        width: 1.5rem;
       }
     }
     &:hover .subcontainer__card__hidde {
-      width: 5rem;
+       width: 5rem;
       // transform: scaleX(2);
-      svg  {
+      svg {
         transform: rotate(0);
-
       }
     }
   }
 }
 @for $i from 0 to 9 {
   .delay-#{$i} {
-    animation-delay:  #{$i/10}s;
+    animation-delay: #{$i/10}s;
+  }
+}
+@for $i from 0 to 2 {
+  .loader-#{$i} {
+    animation-delay: #{$i}s;
   }
 }

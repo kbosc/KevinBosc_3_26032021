@@ -44,6 +44,7 @@ main {
     border: none;
     background-color: darken($grey, 5%);
     border-top: 4px darken($grey, 10%) solid;
+    outline: none;
     @include responsive-desktop {
       height: 4rem;
       margin-top: 1rem;
@@ -166,6 +167,8 @@ main {
 }
 .card {
   position: relative;
+  text-decoration: none;
+  color: black;
   margin: 1em 1em;
   border-radius: 15px;
   background-color: white;

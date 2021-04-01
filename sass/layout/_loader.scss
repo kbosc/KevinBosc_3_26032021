@@ -1,0 +1,34 @@
+.loader {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-color: $grey;
+  @extend %flex-center;
+  svg {
+    animation: flash 1.2s linear infinite;
+  }
+}
+@keyframes flash {
+  0% {
+    fill: $primary;
+  }
+  90% {
+    fill: $secondary;
+  }
+  100% {
+    fill: $primary;
+  }
+}
+@for $i from 0 to 2 {
+  .loader-#{$i} {
+    animation-delay: #{$i} + 1s;
+  }
+}
+
+.fondu-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
