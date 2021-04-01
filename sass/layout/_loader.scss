@@ -5,30 +5,57 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background-color: $grey;
+  background-color: lighten(black, 15);
   @extend %flex-center;
-  svg {
-    animation: flash 1.2s linear infinite;
-  }
-}
-@keyframes flash {
-  0% {
+  &-0 {
     fill: $primary;
   }
-  90% {
+  &-1 {
     fill: $secondary;
   }
-  100% {
-    fill: $primary;
-  }
-}
-@for $i from 0 to 2 {
-  .loader-#{$i} {
-    animation-delay: #{$i} + 1s;
+  &-2 {
+    fill: $tertiary;
   }
 }
 
-.fondu-out {
-  opacity: 0;
-  transition: opacity 0.4s ease-out;
+// svg {
+//   animation: flash 1.2s linear infinite;
+// }
+// @keyframes flash {
+//   0% {
+//     fill: $primary;
+//   }
+//   90% {
+//     fill: $secondary;
+//   }
+//   100% {
+//     fill: $primary;
+//   }
+// }
+// @for $i from 0 to 2 {
+//   .loader-#{$i} {
+//     animation-delay: #{$i} + 1s;
+//   }
+// }
+
+// .fondu-out {
+//   opacity: 0;
+//   transition: opacity 0.4s ease-out;
+// }
+
+// , .loader-2
+
+.loader svg {
+  animation: animate 10s linear infinite;
 }
+@keyframes animate {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(3000px);
+  }
+}
+
+

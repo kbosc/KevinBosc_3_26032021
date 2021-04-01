@@ -133,7 +133,7 @@ img {
         width: 1.5rem;
       }
     }
-    &:hover .subcontainer__card__hidde {
+    &:active .subcontainer__card__hidde {
        width: 5rem;
       // transform: scaleX(2);
       svg {
