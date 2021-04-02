@@ -1,5 +1,5 @@
 .loader {
-  display: none;
+  // display: none;
   z-index: 1;
   position: absolute;
   width: 100%;
@@ -7,55 +7,141 @@
   pointer-events: none;
   background-color: lighten(black, 15);
   @extend %flex-center;
+  perspective: 100px;
+  animation: loading 0.3s 3s forwards;
   &-0 {
     fill: $primary;
+    animation: carou0 5s ease-in-out infinite;
   }
   &-1 {
     fill: $secondary;
+    animation: carou1 5s ease-in-out infinite;
   }
   &-2 {
     fill: $tertiary;
+    animation: carou2 5s ease-in-out infinite;
+  }
+  &__dot {
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 5px;
+    font-family: "Shrikhand", cursive;
+    // display: inline-block;
+    padding-top: 10px;
+    color: lighten(black, 15);
+    &:nth-child(1) {
+      animation: dot1 5s ease-in-out infinite;
+      @include responsive-mobile {
+        animation: dotsmartphone 5s ease-in-out infinite;
+      }
+    }
   }
 }
-
-// svg {
-//   animation: flash 1.2s linear infinite;
-// }
-// @keyframes flash {
-//   0% {
-//     fill: $primary;
-//   }
-//   90% {
-//     fill: $secondary;
-//   }
-//   100% {
-//     fill: $primary;
-//   }
-// }
-// @for $i from 0 to 2 {
-//   .loader-#{$i} {
-//     animation-delay: #{$i} + 1s;
-//   }
-// }
-
-// .fondu-out {
-//   opacity: 0;
-//   transition: opacity 0.4s ease-out;
-// }
-
-// , .loader-2
-
-.loader svg {
-  animation: animate 10s linear infinite;
-}
-@keyframes animate {
+@keyframes loading {
   0% {
-    transform: translateX(0);
+    opacity: 1;
   }
-
   100% {
-    transform: translateX(3000px);
+    opacity: 0;
+  }
+}
+@keyframes carou0 {
+  0% {
+    transform: translate3d(-50px, 0, -50px);
+  }
+  25% {
+    transform: translate3d(50px, 0px, -100px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(150px, 0, -50px);
+  }
+  75% {
+    transform: translate3d(50px, 0, 0);
+    opacity: 1;
+    z-index: 1;
+  }
+  100% {
+    transform: translate3d(-50px, 0, -50px);
+  }
+}
+@keyframes carou1 {
+  0% {
+    transform: translate3d(-50px, 0, 0);
+    opacity: 1;
+  }
+  25% {
+    transform: translate3d(-150px, 0px, -50px);
+  }
+  50% {
+    transform: translate3d(-50px, 0, -100px);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate3d(50px, 0, -50px);
+  }
+  100% {
+    transform: translate3d(-50px, 0, 0);
+  }
+}
+@keyframes carou2 {
+  0% {
+    transform: translate3d(-50px, 0, -50px);
+  }
+  25% {
+    transform: translate3d(-150px, 0px, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(-250px, 0, -50px);
+  }
+  75% {
+    transform: translate3d(-150px, 0, -100px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(-50px, 0, -50px);
   }
 }
 
-
+@keyframes dot1 {
+  0% {
+    transform: translate3d(150px, 0, -100px) rotate(0) scale(1);
+  }
+  25% {
+    transform: translate3d(280px, 0, -50px) rotate(360deg);
+  }
+  50% {
+    transform: translate3d(150px, 0, 0) scale(10);
+    z-index: 1;
+    color: white;
+  }
+  75% {
+    transform: translate3d(-50px, 0, -50px);
+  }
+  100% {
+    transform: translate3d(150px, 0, -100px) rotate(360deg);
+  }
+}
+@keyframes dotsmartphone {
+  0% {
+    transform: translate3d(150px, 0, -100px) rotate(0) scale(1);
+  }
+  25% {
+    transform: translate3d(250px, 0, -50px) rotate(360deg);
+  }
+  50% {
+    transform: translate3d(105px, 0, 0) scale(6);
+    z-index: 1;
+    color: white;
+  }
+  75% {
+    transform: translate3d(-50px, 0, -50px);
+  }
+  100% {
+    transform: translate3d(150px, 0, -100px) rotate(360deg);
+  }
+}
