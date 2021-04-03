@@ -79,7 +79,7 @@ main {
 .main__container-middle {
   @extend %flex-center;
   flex-direction: column;
-  margin: 0 1em;
+  margin: 2.5em 1em;
   position: relative;
   @include responsive-desktop {
     flex-basis: 100%;
