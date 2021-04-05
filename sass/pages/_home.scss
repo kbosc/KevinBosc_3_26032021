@@ -109,10 +109,6 @@ main {
     }
     &:hover {
       @extend %shadow-hover;
-      // background: linear-gradient(
-      //   lighten($primary, 25),
-      //   lighten($secondary, 15)
-      // );
       background-color: lighten($primary, 35);
       > svg {
         color: $primary;
@@ -128,7 +124,6 @@ main {
       border: 2px solid transparent;
       color: #666;
       text-align: center;
-      // font-size: 17px;
       margin-right: 21em;
       background-color: $primary;
       color: white;

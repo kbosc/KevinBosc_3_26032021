@@ -14,7 +14,6 @@
 
 
 .heart-main:hover path {
-  // stroke: $primary;
   stroke: url(#MyGradient);
   animation: stroke-animation 2s ease-in-out forwards;
   @keyframes stroke-animation {
@@ -30,7 +29,6 @@
       transform: scale(1);
     }
     80% {
-      // fill: $primary;
       fill: url(#MyGradient);
       transform: scale(1.1);
     }
@@ -39,7 +37,6 @@
     }
     100% {
       stroke-dashoffset: 3100;
-      // fill: $primary;
       fill: url(#MyGradient);
     }
   }

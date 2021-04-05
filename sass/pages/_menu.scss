@@ -125,7 +125,6 @@ img {
       background-color: $tertiary;
       @extend %flex-center;
       width: 0;
-      // transform: scale(0);
       transition: width 330ms ease-in-out;
       svg {
         transform: rotate(180deg);
@@ -135,7 +134,6 @@ img {
     }
     &:active .subcontainer__card__hidde {
        width: 5rem;
-      // transform: scaleX(2);
       svg {
         transform: rotate(0);
       }

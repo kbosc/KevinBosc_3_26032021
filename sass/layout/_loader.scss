@@ -48,6 +48,8 @@
     opacity: 0;
   }
 }
+
+// Animation guys loader
 @keyframes carou0 {
   0% {
     transform: translate3d(-50px, 0, -50px);
@@ -107,6 +109,8 @@
   }
 }
 
+
+// Animation loader Oh my Food
 @keyframes dot1 {
   0% {
     transform: translate3d(150px, 0, -100px) rotate(0) scale(1);
