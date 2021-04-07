@@ -54,14 +54,15 @@ main {
     }
     &::placeholder {
       background-image: url(../images/svg/map-marker.svg);
+      background-size: 10px;
       background-repeat: no-repeat;
       background-position: 35%;
-      color: black;
       @include responsive-mobile {
         background-position: 30%;
       }
       @include responsive-desktop {
         background-position: 25%;
+        background-image: none;
       }
     }
   }
