@@ -9,6 +9,10 @@
   transform: translate($x, $y);
 }
 
+
+
+// RESPONSIVE ------------------------------------------
+
   // @mixin responsive {
   //     @media screen and (max-width: map-get($breakpoints, mobile)){
   //       @content;
@@ -40,3 +44,34 @@
          lighten($secondary, 15)
        )
    }
+
+
+
+   @mixin svg-gradient($id) {
+    stroke: url($id);
+    animation: stroke-animation 2s ease-in-out forwards;
+    @keyframes stroke-animation {
+      0% {
+        stroke-dashoffset: 0;
+      }
+      30% {
+        stroke-dashoffset: 1550;
+      }
+      60% {
+        stroke-dashoffset: 3100;
+        fill: transparent;
+        transform: scale(1);
+      }
+      80% {
+        fill: url($id);
+        transform: scale(1.1);
+      }
+      90% {
+        transform: scale(1);
+      }
+      100% {
+        stroke-dashoffset: 3100;
+        fill: url($id);
+      }
+    }
+    }
