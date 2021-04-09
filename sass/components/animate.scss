@@ -14,38 +14,38 @@
 
 
 .heart-main:hover path {
-  // @include svg-gradient(#MyGradient);
+   @include svg-gradient(#MyGradient);
   // @include svg-gradient(#MyGradient-1);
   // @include svg-gradient(#MyGradient-2);
   // @include svg-gradient(#MyGradient-3);
   // @include svg-gradient(#MyGradient-4);
   // @include svg-gradient(#MyGradient-5);
-   stroke: url(#MyGradient);
-   animation: stroke-animation 2s ease-in-out forwards;
-   @keyframes stroke-animation {
-     0% {
-       stroke-dashoffset: 0;
-     }
-     30% {
-       stroke-dashoffset: 1550;
-     }
-     60% {
-     stroke-dashoffset: 3100;
-       fill: transparent;
-       transform: scale(1);
-     }
-     80% {
-       fill: url(#MyGradient);
-       transform: scale(1.1);
-     }
-     90% {
-       transform: scale(1);
-     }
-     100% {
-       stroke-dashoffset: 3100;
-       fill: url(#MyGradient);
-     }
-   }
+  //  stroke: url(#MyGradient);
+  //  animation: stroke-animation 2s ease-in-out forwards;
+  //  @keyframes stroke-animation {
+  //    0% {
+  //      stroke-dashoffset: 0;
+  //    }
+  //    30% {
+  //      stroke-dashoffset: 1550;
+  //    }
+  //    60% {
+  //    stroke-dashoffset: 3100;
+  //      fill: transparent;
+  //      transform: scale(1);
+  //    }
+  //    80% {
+  //      fill: url(#MyGradient);
+  //      transform: scale(1.1);
+  //    }
+  //    90% {
+  //      transform: scale(1);
+  //    }
+  //    100% {
+  //      stroke-dashoffset: 3100;
+  //      fill: url(#MyGradient);
+  //    }
+  //  }
 }
 
 // Apparition subcontainer

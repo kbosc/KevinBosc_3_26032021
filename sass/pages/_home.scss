@@ -42,29 +42,40 @@ main {
     text-align: center;
     height: 3rem;
     border: none;
-    background-color: darken($grey, 5%);
+    // background-color: darken($grey, 5%);
     border-top: 4px darken($grey, 10%) solid;
     outline: none;
+    
+    background: url('/images/svg/map-marker.svg') no-repeat darken($grey, 5%);
+     background-size: 12px;
+     background-position: 25%;
     @include responsive-desktop {
       height: 4rem;
       margin-top: 1rem;
       width: 20rem;
       border: none;
       border-radius: 20px;
+      background-image: none;
     }
-    &::placeholder {
-      background-image: url(../images/svg/map-marker.svg);
-      background-size: 10px;
-      background-repeat: no-repeat;
-      background-position: 35%;
-      @include responsive-mobile {
-        background-position: 30%;
-      }
-      @include responsive-desktop {
-        background-position: 25%;
-        background-image: none;
-      }
+    @include responsive-mobile-small {
+      background-position: 25%;
     }
+    // &:active {
+    //   background-image: 0px;
+    // }
+    //  &::placeholder {
+    //    background-image: url(../images/svg/map-marker.svg);
+    //    background-size: 10px;
+    //    background-repeat: no-repeat;
+    //    background-position: 35%;
+    //    @include responsive-mobile {
+    //      background-position: 30%;
+    //    }
+    //    @include responsive-desktop {
+    //      background-position: 25%;
+    //      // background-image: none;
+    //    }
+    //  }
   }
 
   &__about {
