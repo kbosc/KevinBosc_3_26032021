@@ -6,6 +6,12 @@ footer {
     font-family: "Shrikhand", cursive;
     font-weight: lighter;
   }
+  @include responsive-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .footer__contact {
     display: flex;
     flex-direction: column;

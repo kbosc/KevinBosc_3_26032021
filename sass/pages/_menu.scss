@@ -17,6 +17,10 @@ img {
     flex-wrap: wrap;
   }
 }
+h1 {
+  font-family: "Shrikhand", cursive;
+  font-weight: lighter;
+}
 
 .main__container {
   background-color: $grey;
@@ -112,6 +116,10 @@ img {
         }
         h3 {
           font-weight: bold;
+          margin-bottom: 0;
+        }
+        p {
+          margin-top: 0.3rem;
         }
       }
       &__price {
@@ -133,7 +141,7 @@ img {
       }
     }
     &:active .subcontainer__card__hidde {
-       width: 5rem;
+      width: 5rem;
       svg {
         transform: rotate(0);
       }
